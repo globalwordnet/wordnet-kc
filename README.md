@@ -86,17 +86,6 @@ Edit `_config.yml` to update:
    <img src="{{ '/assets/images/your-image.jpg' | relative_url }}" alt="Description">
    ```
 
-### Required Images
-
-To complete the setup, add these images to `assets/images/`:
-
-- `k_center.png` - K-Center logo
-- `certificate.png` - Certificate image
-- `clarin_logo.png` - CLARIN logo for navigation
-- `clarin_eric_logo.png` - CLARIN ERIC logo for footer
-- `university_logo.png` - Host university logo
-- `cc-by-sa.png` - Creative Commons license logo
-- `favicon.ico` - Site favicon
 
 ## Content Areas
 
@@ -111,10 +100,10 @@ Details the specific areas of knowledge, including:
 
 ### Tools & Resources
 Showcases available tools and resources:
-- Wordnet editing tools
-- Cross-lingual alignment utilities
 - Validation and quality assessment tools
 - API access and documentation
+- Wordnet editing tools
+- Cross-lingual alignment utilities
 
 ### Team Section
 Introduces the key personnel and their roles within the K-Center.
@@ -122,31 +111,6 @@ Introduces the key personnel and their roles within the K-Center.
 ### Contact Section
 Provides multiple ways to get in touch and includes a contact form for inquiries.
 
-## Technical Features
-
-### Responsive Design
-- Mobile-first CSS approach
-- Flexible grid systems
-- Optimized for all device sizes
-
-### Performance
-- Optimized images and assets
-- Minimal JavaScript footprint
-- Fast loading times
-
-### SEO
-- Semantic HTML structure
-- Meta tags and Open Graph support
-- Sitemap generation
-- Search engine friendly URLs
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## Contributing
 
