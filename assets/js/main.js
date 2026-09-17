@@ -1,141 +1,84 @@
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
-    
-    if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            
-            // Animate hamburger menu
-            const bars = mobileMenu.querySelectorAll('.bar');
-            bars.forEach(bar => bar.classList.toggle('active'));
-        });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const bars = mobileMenu.querySelectorAll('.bar');
-                bars.forEach(bar => bar.classList.remove('active'));
-            });
-        });
+const header = document.querySelector('[data-header]');
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const menu = document.querySelector('[data-menu]');
+const navLinks = [...document.querySelectorAll('.nav-link')];
+
+function setMenu(open) {
+  if (!menuToggle || !menu) return;
+
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  menu.classList.toggle('is-open', open);
+  document.body.classList.toggle('menu-open', open);
+}
+
+if (menuToggle && menu) {
+  menuToggle.addEventListener('click', () => {
+    setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  navLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      menuToggle.focus();
     }
-});
-
-// Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navigation Active State on Scroll
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionHeight = section.offsetHeight;
-        
-        if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Contact Form Handling
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (!name || !email || !message) {
-            alert('Please fill in all fields.');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        // Here you would typically send the form data to your server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-    });
+  });
 }
 
-// Scroll Animations
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.tool-card, .team-member, .expertise-category');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
+let scrollFrame;
+function updateHeader() {
+  if (header) header.classList.toggle('is-scrolled', window.scrollY > 20);
+  scrollFrame = null;
 }
 
-// Initialize scroll animations
-document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll('.tool-card, .team-member, .expertise-category');
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    animateOnScroll();
+window.addEventListener('scroll', () => {
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(updateHeader);
+}, { passive: true });
+updateHeader();
+
+const sectionLinks = new Map();
+navLinks.forEach((link) => {
+  const hash = new URL(link.href, window.location.href).hash;
+  if (hash.length > 1) sectionLinks.set(hash.slice(1), link);
 });
 
-window.addEventListener('scroll', animateOnScroll);
+const trackedSections = [...document.querySelectorAll('section[id]')]
+  .filter((section) => sectionLinks.has(section.id));
 
-// Back to Top Button
-const backToTopButton = document.querySelector('.scroll-top');
-if (backToTopButton) {
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.style.opacity = '1';
-        } else {
-            backToTopButton.style.opacity = '0.7';
-        }
-    });
+if ('IntersectionObserver' in window && trackedSections.length) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (!visible) return;
+
+    navLinks.forEach((link) => link.removeAttribute('aria-current'));
+    sectionLinks.get(visible.target.id)?.setAttribute('aria-current', 'true');
+  }, { rootMargin: '-25% 0px -60% 0px', threshold: [0, 0.1, 0.4] });
+
+  trackedSections.forEach((section) => sectionObserver.observe(section));
 }
 
+const revealItems = [...document.querySelectorAll('.reveal')];
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  revealItems.forEach((item, index) => {
+    item.classList.add('reveal-ready');
+    item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+    revealObserver.observe(item);
+  });
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+}

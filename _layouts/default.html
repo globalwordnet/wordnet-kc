@@ -1,95 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    
-    <!-- SEO -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b2046">
+    <meta name="color-scheme" content="light">
     {% seo %}
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/fonts/manrope-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    {% if page.url == '/' %}
+    <link rel="preload" as="image" href="{{ '/assets/images/wordnet-hero-800.webp' | relative_url }}" imagesrcset="{{ '/assets/images/wordnet-hero-800.webp' | relative_url }} 800w, {{ '/assets/images/wordnet-hero.webp' | relative_url }} 1672w" imagesizes="(max-width: 900px) calc(100vw - 40px), 55vw" fetchpriority="high">
+    {% endif %}
+    {% if page.hero_image %}
+    <link rel="preload" as="image" href="{{ page.hero_image | relative_url }}" fetchpriority="high">
+    {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <a href="{{ '/' | relative_url }}">
-                    <img src="{{ '/assets/images/clarin_pl_logo.png' | relative_url }}" alt="CLARIN Logo" class="nav-logo">
-                </a>
-            </div>
-            
-            <!-- Mobile menu button -->
-            <div class="nav-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
-            <!-- Navigation menu -->
-            <ul class="nav-menu" id="nav-menu">
-                {% for item in site.navigation %}
-                <li class="nav-item">
-                    <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </nav>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <!-- Main content -->
-    <main>
+    <header class="site-header" data-header>
+        <div class="nav-shell">
+            <a class="brand" href="{{ '/' | relative_url }}" aria-label="Wordnet Knowledge Centre home">
+                <img src="{{ '/assets/images/clarin-pl-logo.webp' | relative_url }}" width="236" height="87" alt="CLARIN-PL" decoding="async">
+                <span class="brand-divider" aria-hidden="true"></span>
+                <span class="brand-name">Wordnet <strong>Knowledge Centre</strong></span>
+            </a>
+
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation" data-menu-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav aria-label="Primary navigation">
+                <ul class="nav-menu" id="nav-menu" data-menu>
+                    {% for item in site.navigation %}
+                    <li><a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
         {{ content }}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-logos">
-            <div class="logo-banner">
-                <img src="{{ '/assets/images/clarin_eric_logo.png' | relative_url }}" alt="CLARIN ERIC">
+    <footer class="site-footer">
+        <div class="footer-grid container-wide">
+            <div class="footer-brand">
+                <div class="footer-logos">
+                    <img class="footer-clarin-logo" src="{{ '/assets/images/clarin-pl-logo-white.webp' | relative_url }}" width="300" height="100" alt="CLARIN-PL" loading="lazy" decoding="async">
+                    {% if site.certification_status == 'certified' %}
+                    <span class="footer-logo-divider" aria-hidden="true"></span>
+                    <span class="footer-k-centre-logo">
+                        <img src="{{ '/assets/images/k-centre.webp' | relative_url }}" width="320" height="91" alt="CLARIN K-Centre" loading="lazy" decoding="async">
+                    </span>
+                    {% endif %}
+                </div>
+                <p>Expert support for wordnets, lexical resources and semantic networks.</p>
             </div>
-            <div class="logo-banner">
-                <img src="{{ '/assets/images/university_logo.png' | relative_url }}" alt="Host University">
+
+            <div class="footer-column">
+                <p class="footer-label">Explore</p>
+                <a href="{{ '/#about' | relative_url }}">About the centre</a>
+                <a href="{{ '/#expertise' | relative_url }}">Our expertise</a>
+                <a href="{{ '/knowledge/' | relative_url }}">Knowledge hub</a>
+                <a href="{{ '/faq/' | relative_url }}">FAQ</a>
+            </div>
+
+            <div class="footer-column">
+                <p class="footer-label">Support &amp; trust</p>
+                <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+                <a href="{{ '/helpdesk/' | relative_url }}">Helpdesk information</a>
+                <a href="{{ '/accessibility/' | relative_url }}">Accessibility</a>
+                <a href="https://www.clarin.eu/content/knowledge-centres" target="_blank" rel="noopener noreferrer">CLARIN Knowledge Centres</a>
             </div>
         </div>
-        
-        <div class="footer-content">
-            <div class="footer-text">
-                <p>Work funded by a national contribution for participation in the international joint venture "CLARIN ERIC: Common Language Resources and Technology Infrastructure".</p>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
-                        <img src="{{ '/assets/images/cc-by-sa.png' | relative_url }}" alt="CC BY-SA" class="cc-logo">
-                    </a>
-                    <span>{{ site.time | date: '%Y' }}</span>
-                </div>
-                
-                <div class="back-to-top">
-                    <a href="#top" class="scroll-top">
-                        <span class="material-icons">expand_less</span>
-                    </a>
-                </div>
-            </div>
+
+        <div class="footer-bottom container-wide">
+            <p>© {{ site.time | date: '%Y' }} Wordnet Knowledge Centre</p>
+            <p>Content available under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a></p>
+            <a class="to-top" href="#top" aria-label="Back to top">↑</a>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Wordnet Knowledge Centre",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "description": {{ site.description | jsonify }},
+      "email": "mailto:{{ site.contact_email }}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "research support",
+        "email": "{{ site.contact_email }}",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
-

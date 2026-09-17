@@ -1,6 +1,6 @@
 # Site settings
-title: "Wordnet CLARIN K-Center"
-description: "CLARIN Knowledge Centre for Wordnet Technologies and Resources"
+title: "Wordnet Knowledge Centre"
+description: "Expert support for wordnets, lexical resources and semantic networks across languages and research domains."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wordnet-kc.github.io" # the base hostname & protocol for your site
 
@@ -34,27 +34,31 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - AUDIT_TODO.md
+  - setup_script.sh
 
 # Site configuration
 google_analytics: # Add your GA tracking ID if needed
-contact_email: "contact@wordnet-kc.org"
+contact_email: "wordnet-kc@clarin-pl.eu"
+certification_status: "pending"
+helpdesk_response: "within two working days"
 
 # Navigation
 navigation:
-  - title: "Home"
-    url: "/"
   - title: "About"
     url: "/#about"
   - title: "Expertise"
     url: "/#expertise"
-  - title: "Tools & Resources"
-    url: "/#tools"
+  - title: "Knowledge"
+    url: "/#knowledge"
+  - title: "Tools"
+    url: "/#resources"
   - title: "Team"
     url: "/#team"
-  - title: "Contact"
-    url: "/#contact"
+  - title: "Helpdesk"
+    url: "/helpdesk/"
 
 # Social links
 social:
   github: "wordnet-kc"
-  email: "contact@wordnet-kc.org"
+  email: "wordnet-kc@clarin-pl.eu"
