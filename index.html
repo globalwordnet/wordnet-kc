@@ -3,19 +3,36 @@ layout: default
 ---
 
 <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>CLARIN Knowledge Centre for Wordnets and Lexical Semantics</h1>
-
-    <p class="hero-subtitle">Wordnet-KC</p>
-    <div class="k-centre-logo">
-      <img src="{{ '/assets/images/k_centre.png' | relative_url }}" alt="K-Centre Logo">
+<section class="hero" id="top">
+  <svg class="hero-arcs" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="#0180ab" stroke-width="1.5" opacity="0.18">
+      <circle cx="330" cy="330" r="250"/>
+      <circle cx="420" cy="250" r="190"/>
+      <circle cx="260" cy="200" r="150"/>
+    </g>
+    <g class="hero-dots" opacity="0.6">
+      <circle cx="352" cy="468" r="7" fill="#07426e"/>
+      <circle cx="398" cy="490" r="9" fill="#07426e"/>
+      <circle cx="446" cy="484" r="11" fill="#a1c037"/>
+      <circle cx="488" cy="458" r="7" fill="#07426e"/>
+      <circle cx="514" cy="420" r="9" fill="#07426e"/>
+    </g>
+  </svg>
+  <div class="container hero-content">
+    <div>
+      <h1>
+        <span class="hero-kicker">CLARIN Knowledge Centre for</span>
+        Wordnets and Lexical Semantics
+      </h1>
+      <p class="hero-tagline">Advice, training and tools for building, using and linking wordnets, in any language.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Ask us a question</a>
+        <a href="#tools" class="btn btn-secondary">Find tools</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <a href="#about" class="scroll-btn">
-      <span class="material-icons">expand_more</span>
-    </a>
+    <div class="k-centre-logo">
+      <img src="{{ '/assets/images/k_centre.png' | relative_url }}" alt="CLARIN K-Centre" width="509" height="145">
+    </div>
   </div>
 </section>
 
@@ -24,199 +41,241 @@ layout: default
 <section class="section" id="about">
   <div class="container">
     <div class="section-header">
-      <div class="icon">
-        <span class="material-icons">task_alt</span>
-      </div>
-      <h2>About Our Wordnet K-Centre</h2>
+      <h2>About the centre</h2>
     </div>
-    <div class="content">
-      <p>The Wordnet CLARIN Knowledge Centre specializes in providing expertise and support for wordnet technologies, lexical resources, and semantic networks. As a CLARIN K-Centre, we are dedicated to promoting knowledge about wordnet infrastructure and supporting researchers in their semantic analysis projects.</p>
-      
-      <p>Our centre offers comprehensive support for wordnet creation, management, and application across various languages and domains. We provide expert guidance on lexical semantic analysis, ontology development, and cross-lingual wordnet alignment within Digital Humanities and Social Sciences research.</p>
-      
-      <h4 class="highlight">What do we do to support our users?</h4>
-      <ul class="feature-list">
-        <li>
-          <span class="material-icons">arrow_right</span>
-          <p>Expert consultation on wordnet development and usage</p>
-        </li>
-        <li>
-          <span class="material-icons">arrow_right</span>
-          <p>Technical support for wordnet tools and applications</p>
-        </li>
-        <li>
-          <span class="material-icons">arrow_right</span>
-          <p>Training workshops on semantic resource creation and management</p>
-        </li>
-        <li>
-          <span class="material-icons">arrow_right</span>
-          <p>Guidance on cross-lingual wordnet alignment and mapping</p>
-        </li>
+    <div class="prose">
+      <p>Wordnet-KC is a CLARIN Knowledge Centre: a place researchers can come to for advice on wordnets and lexical semantics. We help people build, use and link wordnets for research in linguistics, the digital humanities and the social sciences.</p>
+      <p>The centre brings together people from CLARIN-PL, the Open Multilingual Wordnet and the Global Wordnet Association.</p>
+    </div>
+
+    <h3 class="subheading">How we can help</h3>
+    <ul class="mark-list">
+      <li>Advice on building and using wordnets</li>
+      <li>Help with wordnet tools and file formats</li>
+      <li>Training workshops</li>
+      <li>Linking wordnets across languages</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Wordnet Intro Section -->
+<section class="section section-alt" id="wordnets">
+  <div class="container wordnet-intro">
+    <div>
+      <div class="section-header">
+        <h2>What is a wordnet?</h2>
+      </div>
+      <div class="prose">
+        <p>A wordnet is a dictionary organised by meaning. Words that share a sense are grouped into <span class="term">synsets</span> (sets of synonyms), and each synset has a short definition. Synsets are linked by relations such as <span class="term">hypernymy</span> (a <em>car</em> is a kind of <em>motor vehicle</em>), <span class="term">meronymy</span> (a <em>car door</em> is part of a <em>car</em>) and <span class="term">antonymy</span> (<em>hot</em> and <em>cold</em>).</p>
+        <p>Princeton WordNet (Miller 1995; Fellbaum 1998) set the model for English. Wordnets have since been built for dozens of languages, and many are linked through the Collaborative Interlingual Index (CILI), so you can follow a concept from one language to another.</p>
+      </div>
+    </div>
+
+    <figure class="wn-diagram">
+      <div class="wn-grid">
+        <div class="wn-up">
+          <div class="wn-node">motor vehicle, automotive vehicle</div>
+          <div class="wn-edge"><span class="wn-rel">is a kind of</span></div>
+        </div>
+
+        <div class="wn-side wn-langs">
+          <span class="wn-rel">Same concept in other wordnets</span>
+          <ul class="wn-list">
+            <li><div class="wn-node"><span class="wn-lang">pl</span><span lang="pl">samochód, auto</span></div></li>
+            <li><div class="wn-node"><span class="wn-lang">bg</span><span lang="bg">автомобил, кола</span></div></li>
+            <li><div class="wn-node"><span class="wn-lang">ja</span><span lang="ja">自動車, 車</span></div></li>
+          </ul>
+        </div>
+
+        <div class="wn-core">
+          <div class="wn-node">
+            <span class="wn-lemmas">car, auto, automobile, motorcar</span>
+            <span class="wn-gloss">a motor vehicle with four wheels; usually propelled by an internal combustion engine</span>
+          </div>
+        </div>
+
+        <div class="wn-side wn-parts">
+          <span class="wn-rel">Has parts</span>
+          <ul class="wn-list">
+            <li><div class="wn-node">car door</div></li>
+            <li><div class="wn-node">bumper</div></li>
+            <li><div class="wn-node">accelerator</div></li>
+          </ul>
+        </div>
+
+        <div class="wn-down">
+          <div class="wn-edge"><span class="wn-rel">kinds of car</span></div>
+          <ul class="wn-branch">
+            <li><div class="wn-node">cab, taxi</div></li>
+            <li><div class="wn-node">convertible</div></li>
+            <li><div class="wn-node">limousine</div></li>
+          </ul>
+        </div>
+      </div>
+      <figcaption>One synset from Princeton WordNet and some of its neighbours. The boxes marked pl, bg and ja show the same concept in the Polish, Bulgarian and Japanese wordnets.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Expertise Section -->
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-header">
+      <h2>Areas of expertise</h2>
+      <p class="lede">We work on wordnets and lexical resources for single languages and across languages.</p>
+    </div>
+
+    <div class="expertise-row">
+      <h3>Who we work with</h3>
+      <ul class="tag-list">
+        <li>Computational linguists</li>
+        <li>Lexicographers</li>
+        <li>Digital humanities researchers</li>
+        <li>NLP developers</li>
+        <li>Semantic web specialists</li>
+        <li>Ontology engineers</li>
+      </ul>
+    </div>
+
+    <div class="expertise-row">
+      <h3>What we know about</h3>
+      <ul class="tag-list">
+        <li>Building and validating wordnets</li>
+        <li>Aligning wordnets across languages</li>
+        <li>Sense disambiguation and mapping</li>
+        <li>Extracting semantic relations</li>
+        <li>Applications that use wordnets</li>
+        <li>Quality assessment</li>
+        <li>Domain-specific wordnets</li>
+        <li>Multilingual wordnet integration</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- Expertise Section -->
-<section class="section section-alt" id="expertise">
-  <div class="container">
-    <div class="section-header">
-      <div class="icon">
-        <span class="material-icons">build_circle</span>
-      </div>
-      <h2>Areas of Expertise</h2>
-    </div>
-    
-    <div class="expertise-content">
-      <p class="intro">Our Knowledge Centre provides comprehensive expertise in wordnet technologies and lexical semantic resources, supporting both monolingual and multilingual research projects.</p>
-      
-      <div class="expertise-category">
-        <h3 class="category-title">
-          <span class="material-icons">account_circle</span>
-          Audiences Served
-        </h3>
-        <div class="expertise-grid">
-          <ul>
-            <li><span class="material-icons">arrow_right</span> Computational linguists</li>
-            <li><span class="material-icons">arrow_right</span> Lexicographers</li>
-            <li><span class="material-icons">arrow_right</span> Digital humanities researchers</li>
-            <li><span class="material-icons">arrow_right</span> Natural language processing developers</li>
-            <li><span class="material-icons">arrow_right</span> Semantic web specialists</li>
-            <li><span class="material-icons">arrow_right</span> Ontology engineers</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="expertise-category">
-        <h3 class="category-title">
-          <span class="material-icons">psychology</span>
-          Wordnet Technologies
-        </h3>
-        <div class="expertise-grid">
-          <ul>
-            <li><span class="material-icons">arrow_right</span> Wordnet construction and validation</li>
-            <li><span class="material-icons">arrow_right</span> Cross-lingual wordnet alignment</li>
-            <li><span class="material-icons">arrow_right</span> Sense disambiguation and mapping</li>
-            <li><span class="material-icons">arrow_right</span> Semantic relation extraction</li>
-            <li><span class="material-icons">arrow_right</span> Wordnet-based applications</li>
-            <li><span class="material-icons">arrow_right</span> Quality assessment and evaluation</li>
-            <li><span class="material-icons">arrow_right</span> Domain-specific wordnet development</li>
-            <li><span class="material-icons">arrow_right</span> Multilingual wordnet integration</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Tools & Resources Section -->
-<section class="section" id="tools">
+<section class="section section-alt" id="tools">
   <div class="container">
     <div class="section-header">
-      <div class="icon">
-        <span class="material-icons">build</span>
-      </div>
-      <h2>Tools & Resources</h2>
+      <h2>Tools and resources</h2>
     </div>
-    
-    <div class="tools-grid">
-     <div class="tool-card">
-        <h4>Open Multilingual Wordnet Browser</h4>
-        <p>An interface for searching Open Wordnets</p>
-        <a href="https://cygnet.maudslay.eu/" class="btn btn-secondary">Learn More</a>
+
+    <div class="tool-groups">
+      <div class="tool-group">
+        <h3>Browse and read</h3>
+        <ul class="tool-list">
+          <li>
+            <a class="tool-link" href="https://cygnet.maudslay.eu/" target="_blank" rel="noopener">
+              <span class="tool-name">Open Multilingual Wordnet Browser</span>
+              <span class="tool-desc">Search the open wordnets from one interface</span>
+              <span class="tool-host">cygnet.maudslay.eu</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://omwn.org/docs.html" target="_blank" rel="noopener">
+              <span class="tool-name">Wordnet documentation</span>
+              <span class="tool-desc">How wordnets are structured and what they contain</span>
+              <span class="tool-host">omwn.org</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://www.clarin.eu/resource-families/lexical-resources-conceptual-resources" target="_blank" rel="noopener">
+              <span class="tool-name">CLARIN lexical resources</span>
+              <span class="tool-desc">The CLARIN family of lexical and conceptual resources</span>
+              <span class="tool-host">clarin.eu</span>
+            </a>
+          </li>
+        </ul>
       </div>
-        <div class="tool-card">
-        <h4>Wordnet Editor</h4>
-        <p>Professional tools for creating and editing wordnet structures</p>
-        <a href="https://github.com/CLARIN-PL/wordnetloom" class="btn btn-secondary">Learn More</a>
+
+      <div class="tool-group">
+        <h3>Build and check</h3>
+        <ul class="tool-list">
+          <li>
+            <a class="tool-link" href="https://github.com/CLARIN-PL/wordnetloom" target="_blank" rel="noopener">
+              <span class="tool-name">Wordnet editor</span>
+              <span class="tool-desc">WordnetLoom, for creating and editing wordnets</span>
+              <span class="tool-host">github.com/CLARIN-PL</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://server1.nlp.insight-centre.org/gwn-converter/" target="_blank" rel="noopener">
+              <span class="tool-name">Validation suite</span>
+              <span class="tool-desc">Check wordnet files for errors before you release them</span>
+              <span class="tool-host">nlp.insight-centre.org</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="tool-card">
-        <h4>Wordnet Documentation</h4>
-        <p>Documentation on the structures and features of wordnets</p>
-        <a href="https://omwn.org/docs.html" class="btn btn-secondary">Learn More</a>
+
+      <div class="tool-group">
+        <h3>Use in code</h3>
+        <ul class="tool-list">
+          <li>
+            <a class="tool-link" href="https://pypi.org/project/wn/" target="_blank" rel="noopener">
+              <span class="tool-name">Python library</span>
+              <span class="tool-desc"><code>wn</code>: load and query wordnets from Python</span>
+              <span class="tool-host">pypi.org</span>
+            </a>
+          </li>
+          <li>
+            <div class="tool-link">
+              <span class="tool-name">API access <span class="badge">Coming soon</span></span>
+              <span class="tool-desc">Query wordnet data over the web</span>
+            </div>
+          </li>
+        </ul>
       </div>
-      <div class="tool-card">
-        <h4>Validation Suite</h4>
-        <p>Quality assessment and validation tools for wordnet resources</p>
-        <a href="https://server1.nlp.insight-centre.org/gwn-converter/" class="btn btn-secondary">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <h4>Python Library</h4>
-        <p>Robust library for access to wordnet data</p>
-        <a href="https://pypi.org/project/wn/" class="btn btn-secondary">Learn More</a>
-      </div>
-       <div class="tool-card">
-        <h4>API Access</h4>
-        <p>Programmatic access to wordnet data and services</p>
-        <a href="#" class="btn btn-secondary">Coming Soon</a>
-      </div>
-       <div class="tool-card">
-        <h4>CLARIN Lexical Resources</h4>
-        <p>Browse the CLARIN family of lexical and conceptual resources</p>
-        <a href="https://www.clarin.eu/resource-families/lexical-resources-conceptual-resources" class="btn btn-secondary" target="_blank" rel="noopener">Learn More</a>
-      </div>
-      
     </div>
   </div>
 </section>
 
 <!-- Team Section -->
-<section class="section section-alt" id="team">
+<section class="section" id="team">
   <div class="container">
     <div class="section-header">
-      <div class="icon">
-        <span class="material-icons">groups</span>
-      </div>
-      <h2>Our Team</h2>
+      <h2>Our team</h2>
     </div>
-    
+
     <div class="team-grid">
       <div class="team-member">
-        <div class="member-icon">
-          <span class="material-icons">person</span>
-        </div>
-        <div class="member-info">
-          <h4>K-Centre Director</h4>
-          <p class="member-name">Ewa Rudnicka</p>
-        </div>
+        <span class="member-initials" aria-hidden="true">ER</span>
+        <p class="member-name">Ewa Rudnicka</p>
+        <p class="member-role">K-Centre Director</p>
+        <p class="member-affiliation">Wrocław University of Science and Technology</p>
       </div>
       <div class="team-member">
-        <img class="member-photo" src="{{ '/assets/images/team/francis-bond.jpg' | relative_url }}" alt="Francis Bond">
-        <div class="member-info">
-          <h4>Wordnet Expert</h4>
-          <p class="member-name">Francis Bond</p>
-        </div>
+        <img class="member-photo" src="{{ '/assets/images/team/francis-bond.jpg' | relative_url }}" alt="" width="80" height="80">
+        <p class="member-name">Francis Bond</p>
+        <p class="member-role">Wordnet Expert</p>
+        <p class="member-affiliation">Palacký University Olomouc</p>
       </div>
       <div class="team-member">
-        <img class="member-photo" src="{{ '/assets/images/team/petya-osenova.jpg' | relative_url }}" alt="Petya Osenova">
-        <div class="member-info">
-          <h4>Wordnet Expert</h4>
-          <p class="member-name">Petya Osenova</p>
-        </div>
+        <img class="member-photo" src="{{ '/assets/images/team/petya-osenova.jpg' | relative_url }}" alt="" width="80" height="80">
+        <p class="member-name">Petya Osenova</p>
+        <p class="member-role">Wordnet Expert</p>
+        <p class="member-affiliation">Institute of Information and Communication Technologies, Bulgarian Academy of Sciences</p>
       </div>
       <div class="team-member">
-        <div class="member-icon">
-          <span class="material-icons">person</span>
-        </div>
-        <div class="member-info">
-          <h4>Technical Coordinator</h4>
-          <p class="member-name">Tomasz Naskręt</p>
-        </div>
+        <span class="member-initials" aria-hidden="true">TN</span>
+        <p class="member-name">Tomasz Naskręt</p>
+        <p class="member-role">Technical Coordinator</p>
+        <p class="member-affiliation">Wrocław University of Science and Technology</p>
       </div>
     </div>
 
-    <h3 class="subsection-title">Cooperating Institutions</h3>
+    <h3 class="subheading">Cooperating institutions</h3>
     <div class="partner-grid">
       <a class="partner-card" href="https://globalwordnet.org" target="_blank" rel="noopener">
-        <img src="{{ '/assets/images/GWA_logo.png' | relative_url }}" alt="GWA logo">
+        <img src="{{ '/assets/images/GWA_logo.png' | relative_url }}" alt="">
         <span>Global Wordnet Association (GWA)</span>
       </a>
       <a class="partner-card" href="https://www.clarin.eu/centres/clarin-pl" target="_blank" rel="noopener">
-        <img src="{{ '/assets/images/clarin_pl_logo.png' | relative_url }}" alt="CLARIN-PL logo">
+        <img src="{{ '/assets/images/clarin_pl_logo.png' | relative_url }}" alt="">
         <span>CLARIN-PL Language Technology Centre</span>
       </a>
       <a class="partner-card" href="https://omwn.org" target="_blank" rel="noopener">
-        <img src="{{ '/assets/images/omw-logo.svg' | relative_url }}" alt="OMW logo">
+        <img src="{{ '/assets/images/omw-logo.svg' | relative_url }}" alt="">
         <span>Open Multilingual Wordnet (OMW)</span>
       </a>
     </div>
@@ -245,28 +304,24 @@ layout: default
 
 
 <!-- Contact Section -->
-<section class="section" id="contact">
+<section class="section section-alt" id="contact">
   <div class="container">
     <div class="section-header">
-      <div class="icon">
-        <span class="material-icons">mail_outline</span>
-      </div>
-      <h2>Contact & Support</h2>
+      <h2>Contact and support</h2>
+      <p class="lede">We welcome collaboration and are here to support your wordnet-related research and development projects.</p>
     </div>
-    
+
     <div class="contact-content">
-      <p class="contact-intro">We welcome collaboration and are here to support your wordnet-related research and development projects.</p>
-      
       <div class="contact-reasons">
-        <h4>Contact us if you:</h4>
-        <ul>
-          <li><span class="material-icons">arrow_right</span> Need guidance on wordnet development or usage</li>
-          <li><span class="material-icons">arrow_right</span> Require technical support for wordnet tools</li>
-          <li><span class="material-icons">arrow_right</span> Want to collaborate on semantic resource projects</li>
-          <li><span class="material-icons">arrow_right</span> Need training on wordnet technologies</li>
+        <h3>Contact us if you:</h3>
+        <ul class="mark-list">
+          <li>Need guidance on wordnet development or usage</li>
+          <li>Require technical support for wordnet tools</li>
+          <li>Want to collaborate on semantic resource projects</li>
+          <li>Need training on wordnet technologies</li>
         </ul>
       </div>
-      
+
       <div class="contact-form">
         <h3>Get in Touch</h3>
         <form action="/contact" method="POST">

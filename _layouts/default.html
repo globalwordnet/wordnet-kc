@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Literata:opsz,wght@7..72,600&display=swap" rel="stylesheet">
     
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -25,7 +23,7 @@
         #gk-overlay {
             position: fixed; inset: 0; z-index: 9999;
             display: flex; align-items: center; justify-content: center;
-            background: #1a1a2e; font-family: 'Inter', sans-serif;
+            background: #1a1a2e; font-family: 'IBM Plex Sans', system-ui, sans-serif;
         }
         html:not(.gk-locked) #gk-overlay { display: none !important; }
         .gk-box { background: #fff; padding: 2.5rem; border-radius: 12px; text-align: center; width: 320px; max-width: 90vw; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
@@ -59,16 +57,16 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <a href="{{ '/' | relative_url }}">
-                    <img src="{{ '/assets/images/clarin_pl_logo.png' | relative_url }}" alt="CLARIN Logo" class="nav-logo">
+                    <img src="{{ '/assets/images/clarin_pl_logo.png' | relative_url }}" alt="CLARIN – Wordnet-KC home" class="nav-logo">
                 </a>
             </div>
             
             <!-- Mobile menu button -->
-            <div class="nav-toggle" id="mobile-menu">
+            <button class="nav-toggle" id="mobile-menu" type="button" aria-label="Menu" aria-controls="nav-menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
             
             <!-- Navigation menu -->
             <ul class="nav-menu" id="nav-menu">
@@ -102,8 +100,8 @@
                 </div>
                 
                 <div class="back-to-top">
-                    <a href="#top" class="scroll-top">
-                        <span class="material-icons">expand_less</span>
+                    <a href="#top" class="scroll-top" aria-label="Back to top">
+                        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
             </div>

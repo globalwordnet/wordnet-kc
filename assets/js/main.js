@@ -2,69 +2,43 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
-    
+
     if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            
-            // Animate hamburger menu
-            const bars = mobileMenu.querySelectorAll('.bar');
-            bars.forEach(bar => bar.classList.toggle('active'));
+        const setOpen = open => {
+            navMenu.classList.toggle('active', open);
+            mobileMenu.setAttribute('aria-expanded', String(open));
+        };
+
+        mobileMenu.addEventListener('click', () => {
+            setOpen(!navMenu.classList.contains('active'));
         });
-        
+
         // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const bars = mobileMenu.querySelectorAll('.bar');
-                bars.forEach(bar => bar.classList.remove('active'));
-            });
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => setOpen(false));
         });
     }
 });
 
-// Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
 // Navigation Active State on Scroll
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+function updateActiveNav() {
+    const offset = 100;
     let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionHeight = section.offsetHeight;
-        
-        if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
-            current = section.getAttribute('id');
+
+    document.querySelectorAll('section[id]').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+            current = section.id;
         }
     });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', current !== '' && link.hash === `#${current}`);
     });
-});
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+document.addEventListener('DOMContentLoaded', updateActiveNav);
 
 // Contact Form Handling
 const contactForm = document.querySelector('.contact-form form');
@@ -97,45 +71,3 @@ if (contactForm) {
         this.reset();
     });
 }
-
-// Scroll Animations
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.tool-card, .team-member, .expertise-category');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-// Initialize scroll animations
-document.addEventListener('DOMContentLoaded', function() {
-    const elements = document.querySelectorAll('.tool-card, .team-member, .expertise-category');
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    animateOnScroll();
-});
-
-window.addEventListener('scroll', animateOnScroll);
-
-// Back to Top Button
-const backToTopButton = document.querySelector('.scroll-top');
-if (backToTopButton) {
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.style.opacity = '1';
-        } else {
-            backToTopButton.style.opacity = '0.7';
-        }
-    });
-}
-

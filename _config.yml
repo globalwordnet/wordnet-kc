@@ -45,6 +45,8 @@ navigation:
     url: "/"
   - title: "About"
     url: "/#about"
+  - title: "Wordnets"
+    url: "/#wordnets"
   - title: "Expertise"
     url: "/#expertise"
   - title: "Tools & Resources"
