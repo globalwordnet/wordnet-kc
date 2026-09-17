@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Google Fonts -->
@@ -20,9 +17,43 @@
     {% seo %}
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+
+    <!-- Temporary password gate: remove this whole block (and password-gate.js) when the site goes public -->
+    <style>
+        html.gk-locked body > *:not(#gk-overlay) { display: none !important; }
+        #gk-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            background: #1a1a2e; font-family: 'Inter', sans-serif;
+        }
+        html:not(.gk-locked) #gk-overlay { display: none !important; }
+        .gk-box { background: #fff; padding: 2.5rem; border-radius: 12px; text-align: center; width: 320px; max-width: 90vw; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .gk-box h2 { margin: 0 0 1.25rem; font-size: 1.1rem; color: #1a1a2e; }
+        .gk-box input { width: 100%; padding: 0.6rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; margin-bottom: 0.75rem; }
+        .gk-box button { width: 100%; padding: 0.6rem; font-size: 1rem; border: none; border-radius: 6px; background: #4361ee; color: #fff; cursor: pointer; }
+        .gk-box button:hover { background: #3247c9; }
+        .gk-error { color: #d64545; font-size: 0.85rem; margin: 0.5rem 0 0; }
+    </style>
+    <script>
+        // Hide the page synchronously (before body paints) unless already unlocked this browser.
+        if (localStorage.getItem('gk_auth') !== 'ok') {
+            document.documentElement.classList.add('gk-locked');
+        }
+    </script>
 </head>
 <body>
+    <!-- Temporary password gate overlay -->
+    <div id="gk-overlay">
+        <div class="gk-box">
+            <h2>This draft site is password protected</h2>
+            <input type="password" id="gk-password" placeholder="Password" autocomplete="off">
+            <button id="gk-submit">Enter</button>
+            <p id="gk-error" class="gk-error" style="display:none;">Incorrect password</p>
+        </div>
+    </div>
+    <script src="{{ '/assets/js/password-gate.js' | relative_url }}"></script>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -57,25 +88,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logos">
-            <div class="logo-banner">
-                <img src="{{ '/assets/images/clarin_eric_logo.png' | relative_url }}" alt="CLARIN ERIC">
-            </div>
-            <div class="logo-banner">
-                <img src="{{ '/assets/images/university_logo.png' | relative_url }}" alt="Host University">
-            </div>
-        </div>
-        
+        <!-- footer-logos hidden until clarin_eric_logo.png / university_logo.png are added under assets/images/ -->
+
         <div class="footer-content">
             <div class="footer-text">
                 <p>Work funded by a national contribution for participation in the international joint venture "CLARIN ERIC: Common Language Resources and Technology Infrastructure".</p>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-links">
-                    <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
-                        <img src="{{ '/assets/images/cc-by-sa.png' | relative_url }}" alt="CC BY-SA" class="cc-logo">
-                    </a>
+                    <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
                     <span>{{ site.time | date: '%Y' }}</span>
                 </div>
                 
