@@ -1,6 +1,6 @@
 # Wordnet CLARIN K-Center Website
 
-This repository contains the **draft** website for the Wordnet CLARIN Knowledge Centre, a specialized center providing expertise and support for wordnet technologies, lexical resources, and semantic networks.
+This repository contains the **draft** website for the Wordnet CLARIN Knowledge Centre, a specialized center providing expertise and support for wordnet technologies, lexical resources, and semantic networks.   The Knowledge Centre has not benn appproved yrt, ...
 
 ## Overview
 
