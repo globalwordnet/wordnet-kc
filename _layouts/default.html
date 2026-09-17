@@ -52,6 +52,8 @@
     </div>
     <script src="{{ '/assets/js/password-gate.js' | relative_url }}"></script>
 
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -72,7 +74,7 @@
             <ul class="nav-menu" id="nav-menu">
                 {% for item in site.navigation %}
                 <li class="nav-item">
-                    <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
+                    <a href="{{ item.url | relative_url }}" class="nav-link{% if item.url == page.url %} active{% endif %}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -80,7 +82,7 @@
     </nav>
 
     <!-- Main content -->
-    <main>
+    <main id="main" tabindex="-1">
         {{ content }}
     </main>
 
@@ -92,6 +94,14 @@
             <div class="footer-text">
                 <p>Work funded by a national contribution for participation in the international joint venture "CLARIN ERIC: Common Language Resources and Technology Infrastructure".</p>
             </div>
+
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="{{ '/helpdesk/' | relative_url }}">Helpdesk</a>
+                <a href="{{ '/faq/' | relative_url }}">FAQ</a>
+                <a href="{{ '/knowledge/' | relative_url }}">Guides and standards</a>
+                <a href="{{ '/accessibility/' | relative_url }}">Accessibility</a>
+                <a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>
+            </nav>
 
             <div class="footer-bottom">
                 <div class="footer-links">

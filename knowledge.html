@@ -1,0 +1,140 @@
+---
+layout: page
+title: Guides and standards
+intro: The main decisions in building, linking and publishing a wordnet, with pointers to further reading.
+description: Practical guidance on building, linking, licensing and publishing wordnets, with links to standards and the FAIR principles.
+permalink: /knowledge/
+---
+<section class="page-section" aria-labelledby="route-title">
+  <h2 id="route-title">From plan to published wordnet</h2>
+  <ol class="route-list">
+    <li>
+      <h3>Define the purpose</h3>
+      <p>Decide who the wordnet is for, which language variety, domains and parts of speech it covers, how large it should be, and what it will be used for. Settle this before you choose data or tools.</p>
+    </li>
+    <li>
+      <h3>Choose the semantic model</h3>
+      <p>Define what counts as a lexical entry, a sense and a synset, and which relations you will use. Write down your editorial criteria and apply them consistently.</p>
+    </li>
+    <li>
+      <h3>Build for interoperability</h3>
+      <p>Give entries and synsets stable identifiers, link synsets to the Collaborative Interlingual Index (CILI) where you can, and use the Global WordNet Formats, so that others can validate and combine your data.</p>
+    </li>
+    <li>
+      <h3>Choose an open licence</h3>
+      <p>Decide on a licence early, and check that it is compatible with the licences of any resources you build on. See <a href="#licence-title">choosing an open licence</a> below.</p>
+    </li>
+    <li>
+      <h3>Validate and publish</h3>
+      <p>Check your files against the schema and your relations for consistency. Release the wordnet with documentation, a version number and citation information, in a repository that gives it a persistent identifier.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="page-section" aria-labelledby="licence-title">
+  <h2 id="licence-title">Choosing an open licence</h2>
+  <div class="prose">
+    <p>Other people can only use your wordnet if they know what they are allowed to do with it. An open licence answers that question and lets others correct, extend, link and redistribute your work. <a href="https://bond-lab.github.io/static/pdf/2012-gwc-wn-license.pdf" target="_blank" rel="noopener">Bond and Paik (2012)</a> look at the licences wordnets use and how the choice affects their use.</p>
+  </div>
+  <ul class="mark-list mark-list-stack">
+    <li><strong>Use a standard licence</strong> rather than writing your own. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> is a common choice: users may do anything with the data as long as they credit you.</li>
+    <li><strong>Respect the licences of what you build on.</strong> The Open English WordNet, for example, is derived from Princeton WordNet under the WordNet License and adds its own work under CC BY 4.0, so users must credit both.</li>
+    <li><strong>Think twice about share-alike</strong> (CC BY-SA). It keeps derived work open, but makes it harder to combine your data with resources under other licences.</li>
+    <li><strong>Avoid no-derivatives (ND) and non-commercial (NC) terms</strong> if you want the wordnet to be widely used. ND rules out corrections and extensions, and NC leaves many users, including some research projects, unsure whether they may use it.</li>
+    <li><strong>Only openly licensed wordnets</strong> can be included in the Open Multilingual Wordnet.</li>
+  </ul>
+  <ul class="tool-list">
+    <li>
+      <a class="tool-link" href="https://creativecommons.org/chooser/" target="_blank" rel="noopener">
+        <span class="tool-name">Creative Commons licence chooser</span>
+        <span class="tool-desc">Answer a few questions to find the right Creative Commons licence</span>
+        <span class="tool-host">creativecommons.org</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://ufal.github.io/public-license-selector/" target="_blank" rel="noopener">
+        <span class="tool-name">Public License Selector</span>
+        <span class="tool-desc">Choose a licence for data or software, from LINDAT/CLARIAH-CZ</span>
+        <span class="tool-host">ufal.github.io</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://www.clarin.eu/content/licenses-and-clarin-categories" target="_blank" rel="noopener">
+        <span class="tool-name">CLARIN licences and categories</span>
+        <span class="tool-desc">How CLARIN groups licences into public (PUB), academic (ACA) and restricted (RES) resources</span>
+        <span class="tool-host">clarin.eu</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="page-section" aria-labelledby="fair-title">
+  <h2 id="fair-title">Making your wordnet FAIR</h2>
+  <div class="prose">
+    <p>The FAIR principles (<a href="https://doi.org/10.1038/sdata.2016.18" target="_blank" rel="noopener">Wilkinson et al. 2016</a>) say that research data should be Findable, Accessible, Interoperable and Reusable. For a wordnet, that means:</p>
+  </div>
+  <ul class="mark-list mark-list-stack">
+    <li><strong>Findable:</strong> deposit it in a repository, such as a CLARIN centre, that gives it a persistent identifier (a DOI or Handle) and describes it with rich metadata.</li>
+    <li><strong>Accessible:</strong> make it downloadable over standard protocols, and keep the metadata available even if the data itself changes or is withdrawn.</li>
+    <li><strong>Interoperable:</strong> use the Global WordNet Formats and shared identifiers such as CILI.</li>
+    <li><strong>Reusable:</strong> give it a clear licence, documentation, a record of where the data came from, and a recommended citation.</li>
+  </ul>
+  <ul class="tool-list">
+    <li>
+      <a class="tool-link" href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noopener">
+        <span class="tool-name">The FAIR principles</span>
+        <span class="tool-desc">The full list of principles, explained</span>
+        <span class="tool-host">go-fair.org</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://www.clarin.eu/fair" target="_blank" rel="noopener">
+        <span class="tool-name">CLARIN and FAIR</span>
+        <span class="tool-desc">How CLARIN supports each of the FAIR principles</span>
+        <span class="tool-host">clarin.eu</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="page-section" aria-labelledby="standards-title">
+  <h2 id="standards-title">Standards and shared infrastructure</h2>
+  <ul class="tool-list">
+    <li>
+      <a class="tool-link" href="https://globalwordnet.github.io/schemas/" target="_blank" rel="noopener">
+        <span class="tool-name">Global WordNet Formats</span>
+        <span class="tool-desc">Schemas and examples for exchanging wordnet data</span>
+        <span class="tool-host">globalwordnet.github.io</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://globalwordnet.github.io/gwadoc/" target="_blank" rel="noopener">
+        <span class="tool-name">Open Wordnet Documentation</span>
+        <span class="tool-desc">Definitions of relations, with tests and examples</span>
+        <span class="tool-host">globalwordnet.github.io</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://omwn.org/" target="_blank" rel="noopener">
+        <span class="tool-name">Open Multilingual Wordnet</span>
+        <span class="tool-desc">Open wordnets for many languages, linked through shared concepts</span>
+        <span class="tool-host">omwn.org</span>
+      </a>
+    </li>
+    <li>
+      <a class="tool-link" href="https://www.clarin.eu/resource-families/lexical-resources-conceptual-resources" target="_blank" rel="noopener">
+        <span class="tool-name">CLARIN resource family</span>
+        <span class="tool-desc">Lexical and conceptual resources available through CLARIN</span>
+        <span class="tool-host">clarin.eu</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="page-cta" aria-labelledby="need-review">
+  <div>
+    <h2 id="need-review">Working on a particular resource?</h2>
+    <p>Send the helpdesk a representative sample, what you plan to use it for, and the decisions you still need to make.</p>
+  </div>
+  <a class="btn btn-primary" href="{{ '/helpdesk/' | relative_url }}">Ask the helpdesk</a>
+</section>

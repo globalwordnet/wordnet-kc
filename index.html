@@ -162,13 +162,67 @@ layout: default
 
     <div class="tool-groups">
       <div class="tool-group">
-        <h3>Browse and read</h3>
+        <h3>Browse wordnets</h3>
         <ul class="tool-list">
           <li>
             <a class="tool-link" href="https://cygnet.maudslay.eu/" target="_blank" rel="noopener">
               <span class="tool-name">Open Multilingual Wordnet Browser</span>
               <span class="tool-desc">Search the open wordnets from one interface</span>
               <span class="tool-host">cygnet.maudslay.eu</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://en-word.net/" target="_blank" rel="noopener">
+              <span class="tool-name">Open English WordNet</span>
+              <span class="tool-desc">An actively maintained wordnet for English: words, senses, definitions and relations</span>
+              <span class="tool-host">en-word.net</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://slowosiec.pl/" target="_blank" rel="noopener">
+              <span class="tool-name">Słowosieć</span>
+              <span class="tool-desc">The Polish wordnet (plWordNet): definitions, synsets and relations between meanings</span>
+              <span class="tool-host">slowosiec.pl</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tool-group">
+        <h3>Build and check</h3>
+        <ul class="tool-list">
+          <li>
+            <a class="tool-link" href="https://clarin.biz/resources/loom" target="_blank" rel="noopener">
+              <span class="tool-name">WordnetLoom</span>
+              <span class="tool-desc">A graph-based editor for synsets and lexical relations</span>
+              <span class="tool-host">clarin.biz</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://globalwordnet.github.io/schemas/" target="_blank" rel="noopener">
+              <span class="tool-name">Global WordNet Formats</span>
+              <span class="tool-desc">Shared schemas and examples for publishing wordnet data</span>
+              <span class="tool-host">globalwordnet.github.io</span>
+            </a>
+          </li>
+          <li>
+            <a class="tool-link" href="https://server1.nlp.insight-centre.org/gwn-converter/" target="_blank" rel="noopener">
+              <span class="tool-name">Validation suite</span>
+              <span class="tool-desc">Check wordnet files for errors before you release them</span>
+              <span class="tool-host">nlp.insight-centre.org</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tool-group">
+        <h3>Learn and discover</h3>
+        <ul class="tool-list">
+          <li>
+            <a class="tool-link" href="https://omwn.org/" target="_blank" rel="noopener">
+              <span class="tool-name">Open Multilingual Wordnet</span>
+              <span class="tool-desc">Open wordnets for many languages, linked through shared concepts</span>
+              <span class="tool-host">omwn.org</span>
             </a>
           </li>
           <li>
@@ -183,26 +237,6 @@ layout: default
               <span class="tool-name">CLARIN lexical resources</span>
               <span class="tool-desc">The CLARIN family of lexical and conceptual resources</span>
               <span class="tool-host">clarin.eu</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="tool-group">
-        <h3>Build and check</h3>
-        <ul class="tool-list">
-          <li>
-            <a class="tool-link" href="https://github.com/CLARIN-PL/wordnetloom" target="_blank" rel="noopener">
-              <span class="tool-name">Wordnet editor</span>
-              <span class="tool-desc">WordnetLoom, for creating and editing wordnets</span>
-              <span class="tool-host">github.com/CLARIN-PL</span>
-            </a>
-          </li>
-          <li>
-            <a class="tool-link" href="https://server1.nlp.insight-centre.org/gwn-converter/" target="_blank" rel="noopener">
-              <span class="tool-name">Validation suite</span>
-              <span class="tool-desc">Check wordnet files for errors before you release them</span>
-              <span class="tool-host">nlp.insight-centre.org</span>
             </a>
           </li>
         </ul>
@@ -239,7 +273,7 @@ layout: default
 
     <div class="team-grid">
       <div class="team-member">
-        <span class="member-initials" aria-hidden="true">ER</span>
+        <img class="member-photo" src="{{ '/assets/images/team/ewa-rudnicka.jpg' | relative_url }}" alt="" width="80" height="80">
         <p class="member-name">Ewa Rudnicka</p>
         <p class="member-role">K-Centre Director</p>
         <p class="member-affiliation">Wrocław University of Science and Technology</p>
@@ -257,7 +291,7 @@ layout: default
         <p class="member-affiliation">Institute of Information and Communication Technologies, Bulgarian Academy of Sciences</p>
       </div>
       <div class="team-member">
-        <span class="member-initials" aria-hidden="true">TN</span>
+        <img class="member-photo" src="{{ '/assets/images/team/tomasz-naskret.jpg' | relative_url }}" alt="" width="80" height="80">
         <p class="member-name">Tomasz Naskręt</p>
         <p class="member-role">Technical Coordinator</p>
         <p class="member-affiliation">Wrocław University of Science and Technology</p>
@@ -308,37 +342,25 @@ layout: default
   <div class="container">
     <div class="section-header">
       <h2>Contact and support</h2>
-      <p class="lede">We welcome collaboration and are here to support your wordnet-related research and development projects.</p>
+      <p class="lede">Questions about building, using or linking a wordnet are welcome. Write to us in English.</p>
     </div>
 
     <div class="contact-content">
       <div class="contact-reasons">
-        <h3>Contact us if you:</h3>
+        <h3>Get in touch if you:</h3>
         <ul class="mark-list">
-          <li>Need guidance on wordnet development or usage</li>
-          <li>Require technical support for wordnet tools</li>
-          <li>Want to collaborate on semantic resource projects</li>
-          <li>Need training on wordnet technologies</li>
+          <li>Need guidance on building or using a wordnet</li>
+          <li>Need help with wordnet tools or formats</li>
+          <li>Want to collaborate on a lexical resource</li>
+          <li>Would like training on wordnets</li>
         </ul>
       </div>
 
-      <div class="contact-form">
-        <h3>Get in Touch</h3>
-        <form action="/contact" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+      <div class="contact-card">
+        <p class="contact-card-label">Email the helpdesk</p>
+        <a class="contact-email" href="mailto:{{ site.contact_email }}?subject=Wordnet%20helpdesk%20enquiry">{{ site.contact_email }}</a>
+        <p>We aim to reply within two working days.</p>
+        <a href="{{ '/helpdesk/' | relative_url }}">What to include in your message</a>
       </div>
     </div>
   </div>

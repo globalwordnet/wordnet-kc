@@ -37,26 +37,28 @@ exclude:
 
 # Site configuration
 google_analytics: # Add your GA tracking ID if needed
-contact_email: "contact@wordnet-kc.org"
+contact_email: "wordnet-kc@clarin-pl.eu"
 
 # Navigation
 navigation:
-  - title: "Home"
-    url: "/"
   - title: "About"
     url: "/#about"
   - title: "Wordnets"
     url: "/#wordnets"
   - title: "Expertise"
     url: "/#expertise"
-  - title: "Tools & Resources"
+  - title: "Tools"
     url: "/#tools"
   - title: "Team"
     url: "/#team"
-  - title: "Contact"
-    url: "/#contact"
+  - title: "Guides"
+    url: "/knowledge/"
+  - title: "FAQ"
+    url: "/faq/"
+  - title: "Helpdesk"
+    url: "/helpdesk/"
 
 # Social links
 social:
   github: "wordnet-kc"
-  email: "contact@wordnet-kc.org"
+  email: "wordnet-kc@clarin-pl.eu"

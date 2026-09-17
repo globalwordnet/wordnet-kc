@@ -33,41 +33,12 @@ function updateActiveNav() {
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.pathname !== window.location.pathname || !link.hash) {
+            return;
+        }
         link.classList.toggle('active', current !== '' && link.hash === `#${current}`);
     });
 }
 
 window.addEventListener('scroll', updateActiveNav, { passive: true });
 document.addEventListener('DOMContentLoaded', updateActiveNav);
-
-// Contact Form Handling
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (!name || !email || !message) {
-            alert('Please fill in all fields.');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        // Here you would typically send the form data to your server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
-    });
-}
